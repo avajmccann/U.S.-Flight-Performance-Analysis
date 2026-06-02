@@ -1,7 +1,7 @@
 /*
   Query Name: analysis_hourly_running_delay
   Business Question: How do delays accumulate during the day at high volume airports? Do they get worse as the day goes on or only during busy hours?
-  Purpose: Return all high volume airports' average delay and running average for each hour of flights.
+  Purpose: Returns all high volume airports' average delay and running average for each hour of flights.
   Notes: Exclude cancelled flights
 */
 
