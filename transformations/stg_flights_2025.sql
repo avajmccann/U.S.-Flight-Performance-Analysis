@@ -1,8 +1,3 @@
-# This query will create/replace silver flights table.
-# It will partition by FL_DATE, and cluster by carrier & origin
-# It will clean FL_DATE to a DATE
-# It will clean CRS_DEP_TIME, DEP_TIME, CRS_ARR_TIME, ARR_TIME to TIME
-# It will clean DEP_DELAY, ARR_DELAY, CANCELLED, DELAY TYPES to INT
 /*
     Query Name: stg_flights_2025.sql
     Purpose: Takes all raw flight data and give fields correct data types.

@@ -20,7 +20,6 @@ WITH fl_volume AS (
 inbound_delay AS (
   SELECT
     dest_airport,
-    #EXTRACT(HOUR FROM scheduled_arr_time) AS scheduled_arr_hour,
     ROUND(AVG(arr_delay), 2) AS avg_arr_delay,
   FROM `airline-delays-analytics.gold_analytics.fact_flight_delay_analysis`
   GROUP BY 1
@@ -30,7 +29,6 @@ inbound_delay AS (
 outbound_delay AS (
   SELECT
     origin_airport,
-    #EXTRACT(HOUR FROM scheduled_dep_time) AS scheduled_dep_hour,
     ROUND(AVG(dep_delay), 2) AS avg_dep_delay
   FROM `airline-delays-analytics.gold_analytics.fact_flight_delay_analysis`
   GROUP BY 1
@@ -39,7 +37,6 @@ outbound_delay AS (
 SELECT
   f.origin_airport AS airport,
   f.fl_volume,
-  #i.scheduled_arr_hour,
   i.avg_arr_delay AS avg_inbound_delay,
   o.avg_dep_delay AS avg_outbound_delay
 FROM fl_volume f
