@@ -8,6 +8,7 @@ This project demonstrates end-to-end data analytics, including:
 - ETL development using SQL and BigQuery
 - Medallion architecture
 - Dashboard design and data visualization in Tableau
+- [Presentation analyzing findings](https://github.com/avajmccann/U.S.-Flight-Performance-Analysis/blob/main/dashboard/2025%20Flight%20Analysis%20Presentation.pdf)
 
 ## Airport Dashboard
 This dashboard analyzes airport performance and delay patterns related to airport volume, month, weekday and hour.
