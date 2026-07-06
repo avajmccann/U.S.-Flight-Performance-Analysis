@@ -3,11 +3,13 @@
 ## Project Overview
 A business intelligence project analyzing 2025 U.S. domestic flight performance across airports, airlines, and routes. The project combines flight and weather data to identify patterns associated with delays and cancellations and presents the findings through interactive Tableau dashboards. 
 This project demonstrates end-to-end data analytics, including: 
-Data extraction from public datasets
-Data modelling
-ETL development using SQL and BigQuery
-Medallion architecture
-Dashboard design and data visualization in Tableau
+- Data extraction from public datasets
+- Data modelling
+- ETL development using SQL and BigQuery
+- Medallion architecture
+- Dashboard design and data visualization in Tableau
 
+## Airport Dashboard
+This dashboard analyzes airport performance and delay patterns related to airport volume, month, weekday and hour.
 <img width="1984" height="1542" alt="image" src="https://github.com/user-attachments/assets/6077d3dc-576a-4a61-aa0d-1cb921474094" />
 
