@@ -2,7 +2,7 @@
   Query Name: analysis_inbound_vs_outbound_delay
   Business Question: How do airports handle inbound versus outbound delay?
   Purpose: Ranks airports by difference in their inbound and outbound delay to display friction, if any.
-  Note: Data will be averaged for the whole year
+  Notes: Data will be averaged for the whole year
 */
 
 # Only get top 100 airports

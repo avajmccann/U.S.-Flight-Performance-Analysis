@@ -2,6 +2,7 @@
   Query Name: analysis_airline_dominance
   Business Question: Do top carriers at an airport perform better (delay wise) than other airlines to a noticeable degree?
   Purpose: Identifies the top carrier at an airport and compares the carrier's average delay to the airport's average.
+  Notes:
 */
 
 WITH base_metrics AS (
