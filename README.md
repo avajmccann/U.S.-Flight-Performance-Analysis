@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 # U.S. Flight Performance Analysis
 
-Business intelligence project analyzing **7M+ domestic flights across 14 carriers and 150+ airports in 2025**, built to identify where and why delays happen — and whether they're predictable from volume, route, carrier, or weather.
+Business intelligence project analyzing **7M+ domestic flights across 14 carriers and 150+ airports in 2025**, built to identify where and why delays happen, and whether they're predictable from volume, route, carrier, or weather.
 
-**[▶ Live Interactive Dashboard (Tableau Public)](https://public.tableau.com/app/profile/ava.mccann/viz/2025DomesticFlightAnalysis/Airports)** — screenshots below are static; the real thing is interactive.
-
-**[📄 Full presentation of findings](https://github.com/avajmccann/U.S.-Flight-Performance-Analysis/blob/main/dashboard/2025%20Flight%20Analysis%20Presentation.pdf)**
+[Tableau Public Viz](https://public.tableau.com/app/profile/ava.mccann/viz/2025DomesticFlightAnalysis/Airports)
 
 ---
 
@@ -40,16 +37,7 @@ Built on a bronze → silver → gold (medallion) model in BigQuery:
 | **Silver (refined)** | Type-cleaned flight staging table; cleaned NOAA GSOD weather + station data; airports mapped to their nearest weather station via geospatial join (`ST_GEOGPOINT` / `ST_DISTANCE`) |
 | **Gold (analytics)** | A single partitioned, clustered fact table (`fact_flight_delay_analysis`) joining flights + airport metadata + runway counts + nearest-station weather, ready for BI tools |
 
-**Sources:** Bureau of Transportation Statistics (2025 domestic flights), NOAA GSOD (weather observations + station registry), FAA (airport + runway reference data) — all pulled from BigQuery public datasets.
-
-**Notable technical choices:**
-- Nearest-weather-station matching done via true geospatial distance (`ST_DISTANCE` over `ST_GEOGPOINT`), not a state/region approximation
-- Gold table is date-partitioned and clustered by carrier + origin airport for query performance at 7M+ row scale
-- Window functions (`FIRST_VALUE`, `QUALIFY`) used throughout the analysis layer instead of self-joins
-
-## Tech Stack
-
-`SQL (BigQuery)` · `Tableau` · Medallion architecture (bronze/silver/gold) · Geospatial functions
+**Sources:** Bureau of Transportation Statistics (2025 domestic flights), NOAA GSOD (weather observations + station registry), FAA (airport + runway reference data)
 
 ## Repo Structure
 
@@ -65,27 +53,3 @@ dashboard/          # dashboard exports and the findings presentation
 - Add weather station averages (snowfall, wind, precipitation) directly into the weather-vulnerability query, not just cancellation counts
 - Move the pipeline from manual `CREATE OR REPLACE TABLE` scripts into dbt for testing, documentation, and lineage
 =======
-
-# U.S.-Flight-Performance-Analysis
-## Project Overview
-A business intelligence project analyzing 2025 U.S. domestic flight performance across airports, airlines, and routes. The project combines flight and weather data to identify patterns associated with delays and cancellations and presents the findings through interactive Tableau dashboards. 
-This project demonstrates end-to-end data analytics, including: 
-- Data extraction from public datasets
-- Data modelling
-- ETL development using SQL and BigQuery
-- Medallion architecture
-- Dashboard design and data visualization in Tableau
-- [Presentation of dashboard and insights](https://github.com/avajmccann/U.S.-Flight-Performance-Analysis/blob/main/dashboard/2025%20Flight%20Analysis%20Presentation.pdf)
-
-## Airport Dashboard
-This dashboard analyzes airport performance and delay patterns related to airport volume, month, weekday and hour.
-
-<img width="1984" height="1542" alt="image" src="https://github.com/user-attachments/assets/6077d3dc-576a-4a61-aa0d-1cb921474094" />
-
-## Airline Dashboard
-This dashboard analyzes differences in airline efficiency and delay patterns behind specific routes.
-
-<img width="1990" height="1548" alt="image" src="https://github.com/user-attachments/assets/0a022900-9c3f-4371-a2b9-f18f8eb91a30" />
-
-
->>>>>>> 14cc49c656d3b9920965e01cd64b3a74368ef270
