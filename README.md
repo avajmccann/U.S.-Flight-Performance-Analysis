@@ -21,11 +21,8 @@ Business intelligence project analyzing **7M+ domestic flights across 14 carrier
 
 **Airports view** — national delay patterns by volume, time of day, day of week, and month, plus a flight-volume-vs-delay-rate scatter to test whether busier airports are structurally more delay-prone.
 
-![Airports Dashboard](dashboard/Airports%20Dashboard%20Image.png)
-
 **Airlines view** — route networks by carrier, on-time performance and cancellation rate by airline, and the highest-delay-rate routes across the network.
 
-![Airlines Dashboard](dashboard/Airlines%20Dashboard%20Image.png)
 
 ## Data & Architecture
 
