@@ -1,30 +1,22 @@
 # U.S. Flight Performance Analysis
 
-Business intelligence project analyzing **7M+ domestic flights across 14 carriers and 150+ airports in 2025**, built to identify where and why delays happen, and whether they're predictable from volume, route, carrier, or weather.
+## Project Background
+The US has tens of thousands of daily flights, and one of the biggest issues is flight delays. This project thoroughly analyzes **7M+ domestic flights across 14 carriers and 150+ airports in 2025 to identify where and why delays happen, and whether they're predictable from airport, volume, route or carrier. It uncovers critical insights that will will improve airport and airline response to flight delays.
 
-[Tableau Public Viz](https://public.tableau.com/app/profile/ava.mccann/viz/2025DomesticFlightAnalysis/Airports)
+Insights and recommendations are provided in the following key areas:
+- **Airport Volume Analysis**: Evaluation of how different airports handle flight volume and delays, focusing on OTP (On-Time Performance)
+- **Airline Level Performance**: An analysis of how airports with more or less volume are impacted by delays.
+- **Monthly Trends**: Evaluation of how peak months affect delays.
 
----
+An interactive Tableau dashboard can be downloaded [here](https://public.tableau.com/app/profile/ava.mccann/viz/2025DomesticFlightAnalysis/Airports)
 
-## Business Questions
+The SQL queries utilized to inspect and analyze trends regarding business questions can be found [here](analysis/)
 
-- Do the top carriers at an airport perform better on delays than the airport average, or does carrier choice not matter much?
-- How do delays accumulate through the day at high-volume airports — do they snowball, or reset?
-- Which airports have the widest gap between inbound and outbound delay, and what does that say about how well they recover?
-- Which airports are most weather-vulnerable, and is there a common thread (region, runway count, station proximity)?
-- Do an airport's peak-volume month and peak-delay month actually line up?
-- What's the real probability a flight gets delayed 15+ minutes, by airport?
+The SQL queries utilized to clean, organize and transform data can be found [here](transformations)
 
-## Key Findings
+## Data Structure & Initial Checks
 
-## Dashboard
-
-**Airports view** — national delay patterns by volume, time of day, day of week, and month, plus a flight-volume-vs-delay-rate scatter to test whether busier airports are structurally more delay-prone.
-
-**Airlines view** — route networks by carrier, on-time performance and cancellation rate by airline, and the highest-delay-rate routes across the network.
-
-
-## Data & Architecture
+(ERD Diagram)
 
 Built on a bronze → silver → gold (medallion) model in BigQuery:
 
@@ -36,17 +28,30 @@ Built on a bronze → silver → gold (medallion) model in BigQuery:
 
 **Sources:** Bureau of Transportation Statistics (2025 domestic flights), NOAA GSOD (weather observations + station registry), FAA (airport + runway reference data)
 
-## Repo Structure
+## Executive Summary
 
-```
-transformations/   # bronze → silver → gold table builds (the pipeline)
-analysis/           # exploratory + business-question queries against the gold layer
-dashboard/          # dashboard exports and the findings presentation
-```
+### Overview of Findings
+(Each insight should contain: quantified value, business metric, simple story about historical trend).
 
-## Future Improvements
+### Hourly Trends
+- Flight volume peaks at 7am with x average flights. The rest of the day stays steady at x average hourly flights.
+- Delay volume builds up throughout the day, peaking at 6pm (x% above the average hourly delay).
+- The amount of delays corresponds with volume of flights, but it does not happen at the same time.
 
-- Extend the runway/delay-risk analysis into a full correlation model (started in `airports_by_runway.sql`)
-- Add weather station averages (snowfall, wind, precipitation) directly into the weather-vulnerability query, not just cancellation counts
-- Move the pipeline from manual `CREATE OR REPLACE TABLE` scripts into dbt for testing, documentation, and lineage
-=======
+### Daily Trends
+- Highest delays on thurs/sundays but doesn't correlate with flight volume.
+  
+### Monthly Trends
+- Monthly: Flight volume peaks during holidays and summer months (May-August). Volume and delays are correlated.
+
+## Airport Performance
+- Flight volume strongly correlates with delay rate. Of the top 50 airports, the top 5 have a 7% higher delay rate than the bottom 5.
+
+## Airline Performance
+- There is a -0.1 association between volume and delays for airlines, proving that there is no correlation.
+- Airlines handle higher volume better than individual airports
+
+## Recomendations
+Based on the uncovered insights, the following recomendations have been provided:
+- With a +0.8 association between volume and delays at airports, handling delays at high-volume locations is crucial. Airlines experiencing dissatisfaction from delays should introduce more personnel to high-volume airports.
+
