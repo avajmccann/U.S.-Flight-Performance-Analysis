@@ -36,11 +36,15 @@ The pipeline was built on a bronze → silver → gold (medallion) model in BigQ
 (Each insight should contain: quantified value, business metric, simple story about historical trend).
 
 ## Airport Performance
-- Flight volume strongly correlates with delay rate. Of the top 50 airports, the top 5 have a 7% higher delay rate than the bottom 5.
+- Flight volume strongly correlates with delay rate. Of the top 50 airports, the top 5 have a 7% higher delay rate than the bottom 5. (link to query)
+- 
 
 ## Airline Performance
 - There is a -0.1 association between volume and delays for airlines, proving that there is no correlation.
 - Airlines handle higher volume better than individual airports
+
+<img width="2620" height="1050" alt="image" src="https://github.com/user-attachments/assets/b3d03f10-4c2b-4999-89f2-a37132f41aaf" />
+
 
 
 ### Hourly Trends
