@@ -37,10 +37,10 @@ The pipeline was built on a bronze → silver → gold (medallion) model in BigQ
 
 ## Airport Performance
 - Flight volume strongly correlates with delay rate. Of the top 50 airports, the top 5 have a 7% higher delay rate than the bottom 5. (link to query) (query to write: Top 50 airports, with delay rates. Then write another query getting average of top 5, and bottom 5). 
-- How do airports handle delay rates when volume is higher? Get the correlation of flight volume to delay rate to delay amount.
+- The top 5 airports by volume have a correlation rate of **0.791** between flight volume and delay length. The correlation rate gets lower as more airports with less flight volume are included, with **0.448** for the top 50, and **0.315** for the top 100 airports in the country by volume.
 
 ## Airline Performance
-- There is a -0.1 association between volume and delays for airlines, proving that there is no correlation. (How do airlines handle delay rates when volume is higher? Get correlation of flight volume to delay rate to delay amount).
+- Across **14 carriers and 168 months**, the correlation between flight volume and delays is **0.027**, proving there is no correlation.
 - Do airlines handle delays better in their 'home airport'? [Query](analysis_airline_dominance.sql)
 - What percent of an airline's delays originate at the top 5 & 10 most delayed airports?
 
@@ -61,5 +61,5 @@ The pipeline was built on a bronze → silver → gold (medallion) model in BigQ
 
 ## Recomendations
 Based on the uncovered insights, the following recomendations have been provided:
-- With a +0.8 association between volume and delays at airports, handling delays at high-volume locations is crucial. Airlines experiencing dissatisfaction from delays should introduce more personnel to high-volume airports at the origin of the flight.
+- With a +0.8 association between volume and delays at top 5 airports, handling delays at high-volume locations is crucial. Airlines experiencing dissatisfaction from delays should introduce more personnel to high-volume airports at the origin of the flight.
 
