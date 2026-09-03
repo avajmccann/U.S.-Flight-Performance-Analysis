@@ -36,27 +36,29 @@ The pipeline was built on a bronze → silver → gold (medallion) model in BigQ
 (Each insight should contain: quantified value, business metric, simple story about historical trend).
 
 ## Airport Performance
-- Flight volume strongly correlates with delay rate. Of the top 50 airports, the top 5 have a 7% higher delay rate than the bottom 5. (link to query) (query to write: Top 50 airports, with delay rates. Then write another query getting average of top 5, and bottom 5). 
 - The top 5 airports by volume have a correlation rate of **0.791** between flight volume and delay length. The correlation rate gets lower as more airports with less flight volume are included, with **0.448** for the top 50, and **0.315** for the top 100 airports in the country by volume.
+- Of the top 50 airports, the top five have a 5% higher delay rate (23.96%) than the bottom five (19.05%).
+- The top 10 airports share **20.0%** of the total flight volume across all airports. The top 20 share **33.84%**
 
 ## Airline Performance
 - Across **14 carriers and 168 months**, the correlation between flight volume and delays is **0.027**, proving there is no correlation.
-- Do airlines handle delays better in their 'home airport'? [Query](analysis_airline_dominance.sql)
+- Do airlines handle delays better in their 'home airport'? [analysis_airline_dominance](analysis_airline_dominance.sql)
 - What percent of an airline's delays originate at the top 5 & 10 most delayed airports?
+- The top 3 carriers (by volume) share **48.58%** of the total flight volume. The top 5 share **72.01%**. The difference from the 5th to 6th carrier is extreme, with a difference of **450k yearly flights** and drop of 56%.
 
 <img width="2620" height="1050" alt="image" src="https://github.com/user-attachments/assets/b3d03f10-4c2b-4999-89f2-a37132f41aaf" />
 
 ### Hourly Trends
-- The length of delays increases steadily throughout the day, at an average of **1.08 minutes per hour** until 9pm. Across all airports, the average delay starts at **2.84 minutes at 5am** and the peak ends at **22.84 minutes at 9pm**. [Query](analysis/analysis_hourly_running_delay.sql)
-- Across all airports, flight volume peaks at 7 and 8am with **6.31k** and **6.48k** flights. The rest of the day stays steady between **5k** and **4.9k** hourly flights until 8pm, when it drops from **4.3k** to **1.3k** flights at 11pm. [Query](analysis/analysis_hourly_flight_volume.sql)
+- The length of delays increases steadily throughout the day, at an average of **1.08 minutes per hour** until 9pm. Across all airports, the average delay starts at **2.84 minutes at 5am** and the peak ends at **22.84 minutes at 9pm**. [analysis_hourly_running_delay.sql](analysis/analysis_hourly_running_delay.sql)
+- Across all airports, flight volume peaks at 7 and 8am with **6.31k** and **6.48k** flights. The rest of the day stays steady between **5k** and **4.9k** hourly flights until 8pm, when it drops from **4.3k** to **1.3k** flights at 11pm. [analysis_hourly_flight_volume.sql](analysis/analysis_hourly_flight_volume.sql)
 
 ### Daily Trends
-- What weekdays have the most & least delays?
-- What weekday have the most & least flights?
+- Across all flights, Sunday and Monday have the most delays, at an average of **25.98% of flights** having delay times longer than 15 minutes.
+- Tuesday and Wednesday see the fewest delays with a delay rate of **17.69 and 17.05** respectively.
   
 ### Monthly Trends
-- What months have the most & least delays?
-- What months have the most & least flights?
+- June, July and December have the highest delay rates. 
+- The average flights per month is **575k**. July peaks at **9.74% higher** than the average, and February sits at **12.17%** lower.
 - How much higher are holiday flight volumes & delays than the average for that month?
 
 ## Recomendations
